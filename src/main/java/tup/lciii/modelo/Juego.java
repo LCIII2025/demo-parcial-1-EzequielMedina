@@ -32,6 +32,7 @@ public class Juego {
 
     public int getCantidadJugadores() {
         //TODO
+        return jugadores.size();
     }
 
     public int getPuntajeMaximo() {
@@ -45,6 +46,14 @@ public class Juego {
      */
     public void iniciarJugadores(ArrayList<String> nombresDeJugadores) {
         //TODO
+
+        for (int i = 0; i < nombresDeJugadores.size(); i++) {
+            Jugador jugador = new Jugador(nombresDeJugadores.get(i), false);
+            if (i == 0) {
+                jugador.setEsTurno(true);
+            }
+            jugadores.add(jugador);
+        }
     }
 
     public void iniciarMazo() {
@@ -61,6 +70,15 @@ public class Juego {
      */
     public void mezclarMazoYrepartirCartas() {
         //TODO
+
+        mazo.mezclarMazo();
+
+        for (Jugador jugador : jugadores) {
+            for (int i = 0; i < 7; i++) {
+                jugador.agarrarCartaDelMazo(mazo);
+            }
+        }
+
     }
 
     /**

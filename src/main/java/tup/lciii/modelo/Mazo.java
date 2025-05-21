@@ -24,6 +24,8 @@ public class Mazo {
      */
     public int getMazoLength() {
         //TODO
+
+        return mazo.size();
     }
 
     /**
@@ -41,6 +43,12 @@ public class Mazo {
      */
     public void generarMazo() {
         //TODO
+
+        for (int i = 1; i <= 13; i++) {
+            for (Palo palo : Palo.values()) {
+                mazo.add(new Carta(i, palo));
+            }
+        }
     }
 
     /**
@@ -56,6 +64,7 @@ public class Mazo {
      */
     public void mezclarMazo() {
         //TODO
+        Collections.shuffle(mazo);
     }
 
     /**
